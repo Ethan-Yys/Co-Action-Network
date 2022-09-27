@@ -95,7 +95,7 @@ def split_test():
                 print("20190119" + "\t" + line, file=fo)
         i += 1
 
-# process_meta(sys.argv[1])
+process_meta(sys.argv[1])
 process_reviews(sys.argv[2])
 manual_join()
 split_test()
