@@ -12,3 +12,4 @@ for variable in variables:
     # print(variable_parameters)
     total_parameters += variable_parameters
 print(total_parameters)
+
