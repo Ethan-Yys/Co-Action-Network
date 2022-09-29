@@ -8,9 +8,11 @@ import gzip
 import shuffle
 
 def unicode_to_utf8(d):
-    return dict((key.encode("UTF-8"), value) for (key,value) in list(d.items()))
+    # return dict((key.encode("UTF-8"), value) for (key,value) in list(d.items()))
+    return dict((key, value) for (key, value) in list(d.items()))
 def dict_unicode_to_utf8(d):
-    return dict(((key[0].encode("UTF-8"), key[1].encode("UTF-8")), value) for (key,value) in list(d.items()))
+    # return dict(((key[0].encode("UTF-8"), key[1].encode("UTF-8")), value) for (key,value) in list(d.items()))
+    return dict(((key[0], key[1]), value) for (key, value) in list(d.items()))
 
 def load_dict(filename):
     try:
