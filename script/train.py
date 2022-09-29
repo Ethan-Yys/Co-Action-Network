@@ -195,21 +195,32 @@ def train(
             print(("Invalid model_type : %s" % model_type))
             return
         print(("Model: ", model_type))
+        print(111111)
         sess.run(tf.global_variables_initializer())
+        print(22222)
         sess.run(tf.local_variables_initializer())
+        print(33333)
         sys.stdout.flush()
-
+        print(44444444)
+        sys.stdout.flush()
         count()
+        sys.stdout.flush()
         start_time = time.time()
         iter = 0
         lr = 0.001
         for itr in range(1):
+            print(8888888)
+            sys.stdout.flush()
             loss_sum = 0.0
             accuracy_sum = 0.
             aux_loss_sum = 0.
             for src, tgt in train_data:
+                print(src, tgt)
+                sys.stdout.flush()
                 uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, noclk_mids, noclk_cats, carte = prepare_data(
                     src, tgt, maxlen, return_neg=True)
+                print(uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, noclk_mids, noclk_cats, carte)
+                sys.stdout.flush()
                 loss, acc, aux_loss = model.train(sess, [uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, lr,
                                                          noclk_mids, noclk_cats, carte])
                 loss_sum += loss
@@ -220,6 +231,7 @@ def train(
                 if (iter % 100) == 0:
                     print(('iter: %d ----> train_loss: %.4f ---- train_accuracy: %.4f ---- train_aux_loss: %.4f' % (
                     iter, loss_sum / 100, accuracy_sum / 100, aux_loss_sum / 100)))
+                    sys.stdout.flush()
                     loss_sum = 0.0
                     accuracy_sum = 0.0
                     aux_loss_sum = 0.0
@@ -230,11 +242,14 @@ def train(
                               iter, auc_, loss_, acc_, aux_)))
                     loss_sum = 0.0
                     accuracy_sum = 0.0
+                    sys.stdout.flush()
                     aux_loss_sum = 0.0
                 if (iter % save_iter) == 0:
                     print(('save model iter: %d' % (iter)))
                     model.save(sess, model_path + "--" + str(iter))
+                    sys.stdout.flush()
             lr *= 0.5
+            sys.stdout.flush()
 
 
 def count_flops(graph):
@@ -244,15 +259,24 @@ def count_flops(graph):
 
 def count():
     total_parameters = 0
+    print(55555)
+    print(tf.trainable_variables())
+    print(66666)
+    sys.stdout.flush()
     for variable in tf.trainable_variables():
         # shape is an array of tf.Dimension
+        print(variable)
+        print(77777)
+        sys.stdout.flush()
         shape = variable.get_shape()
         variable_parameters = 1
         for dim in shape:
             variable_parameters *= dim.value
         total_parameters += variable_parameters
+        print(total_parameters)
+        sys.stdout.flush()
     print(("Prameter: ", total_parameters))
-
+    sys.stdout.flush()
 
 def test(
         train_file="local_train_splitByUser",

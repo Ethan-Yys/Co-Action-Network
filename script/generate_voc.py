@@ -34,7 +34,7 @@ for line in f_train:
         if (mid, m) not in item_carte_dict:
             item_carte_dict[(mid, m)] = 0
         item_carte_dict[(mid, m)] += 1
-    #print iddd
+    # print iddd
     iddd+=1
     for c in cat_list.split(""):
         if c not in cat_dict:
@@ -84,9 +84,9 @@ for key, value in sorted_cate_carte_dict:
     cate_carte_voc[key] = index
     index += 1
 
-pickle.dump(uid_voc, open("uid_voc.pkl", "w"))
-pickle.dump(mid_voc, open("mid_voc.pkl", "w"))
-pickle.dump(cat_voc, open("cat_voc.pkl", "w"))
-pickle.dump(item_carte_voc, open("item_carte_voc.pkl", "w"))
-pickle.dump(cate_carte_voc, open("cate_carte_voc.pkl", "w"))
+pickle.dump(uid_voc, open("uid_voc.pkl", "wb+"))
+pickle.dump(mid_voc, open("mid_voc.pkl", "wb+"))
+pickle.dump(cat_voc, open("cat_voc.pkl", "wb+"))
+pickle.dump(item_carte_voc, open("item_carte_voc.pkl", "wb+"))
+pickle.dump(cate_carte_voc, open("cate_carte_voc.pkl", "wb+"))
 print('generate_voc finished')

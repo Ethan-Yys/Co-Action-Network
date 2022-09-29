@@ -298,6 +298,8 @@ class Model(object):
                                                    })
             return loss, accuracy, aux_loss
         else:
+            print('model99999')
+            sys.stdout.flush()
             loss, accuracy, _ = sess.run([self.loss, self.accuracy, self.optimizer], feed_dict={
                 self.uid_batch_ph: inps[0],
                 self.mid_batch_ph: inps[1],
@@ -310,6 +312,8 @@ class Model(object):
                 self.lr: inps[8],
                 self.carte_batch_ph: inps[11]
             })
+            print(loss, accuracy)
+            sys.stdout.flush()
             return loss, accuracy, 0
 
     def calculate(self, sess, inps):
