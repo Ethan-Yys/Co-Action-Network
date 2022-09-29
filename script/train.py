@@ -215,19 +215,19 @@ def train(
             accuracy_sum = 0.
             aux_loss_sum = 0.
             for src, tgt in train_data:
-                print(src, tgt)
-                sys.stdout.flush()
+                # print(src, tgt)
+                # sys.stdout.flush()
                 uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, noclk_mids, noclk_cats, carte = prepare_data(
                     src, tgt, maxlen, return_neg=True)
-                print(uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, noclk_mids, noclk_cats, carte)
-                sys.stdout.flush()
+                # print(uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, noclk_mids, noclk_cats, carte)
+                # sys.stdout.flush()
                 loss, acc, aux_loss = model.train(sess, [uids, mids, cats, mid_his, cat_his, mid_mask, target, sl, lr,
                                                          noclk_mids, noclk_cats, carte])
                 loss_sum += loss
                 accuracy_sum += acc
                 aux_loss_sum += aux_loss
                 iter += 1
-                sys.stdout.flush()
+                # sys.stdout.flush()
                 if (iter % 100) == 0:
                     print(('iter: %d ----> train_loss: %.4f ---- train_accuracy: %.4f ---- train_aux_loss: %.4f' % (
                     iter, loss_sum / 100, accuracy_sum / 100, aux_loss_sum / 100)))
