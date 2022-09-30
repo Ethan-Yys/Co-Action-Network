@@ -1,6 +1,6 @@
 import pickle
 
-f_train = open("local_train_splitByUser", "r")
+f_train = open("local_test", "r")
 uid_dict = {}
 mid_dict = {}
 cat_dict = {}

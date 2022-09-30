@@ -125,8 +125,8 @@ def eval(sess, test_data, model, model_path):
 
 
 def train(
-        train_file="local_train_splitByUser",
-        test_file="local_test_splitByUser",
+        train_file="local_train",
+        test_file="local_test",
         uid_voc="uid_voc.pkl",
         mid_voc="mid_voc.pkl",
         cat_voc="cat_voc.pkl",
@@ -279,8 +279,8 @@ def count():
     sys.stdout.flush()
 
 def test(
-        train_file="local_train_splitByUser",
-        test_file="local_test_splitByUser",
+        train_file="local_train",
+        test_file="local_test",
         uid_voc="uid_voc.pkl",
         mid_voc="mid_voc.pkl",
         cat_voc="cat_voc.pkl",
