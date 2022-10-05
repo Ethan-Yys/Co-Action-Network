@@ -130,7 +130,7 @@ def train(
         uid_voc="uid_voc.pkl",
         mid_voc="mid_voc.pkl",
         cat_voc="cat_voc.pkl",
-        batch_size=128,
+        batch_size=4096,
         maxlen=100,
         test_iter=8400,
         save_iter=8400,
